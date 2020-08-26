@@ -47,8 +47,8 @@ class HomePageState extends State<HomePage> {
     setState(() {
       num1 = 0;
       num2 = 0;
-      t1.text = '0';
-      t2.text = '0';
+      t1.clear();
+      t2.clear();
     });
   }
 
@@ -61,8 +61,7 @@ class HomePageState extends State<HomePage> {
       ),
       body: new Container(
         padding: EdgeInsets.all(40.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
             new Text(
               'Output : ${result.toString()}',
@@ -90,7 +89,9 @@ class HomePageState extends State<HomePage> {
               children: <Widget>[
                 new MaterialButton(
                   child: new Text('+'),
-                  onPressed: doAddition,
+                  onPressed: () {
+                    doAddition();
+                  },
                   color: Colors.greenAccent,
                 ),
                 new MaterialButton(
